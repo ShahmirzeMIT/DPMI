@@ -5,6 +5,7 @@ import HomePage from "../pages/Home/HomePage";
 import Courses from "../pages/Courses/Courses";
 import Login from "../pages/Login/Login";
 import { ProtectedRoute } from "./ProtectedRouter";
+import SignIn from "../pages/SignIn/SignIn";
 
 export const routes= [
     {
@@ -23,7 +24,7 @@ export const routes= [
     },
     {
         path:'/sign',
-        element:<Login/>
+        element:<SignIn/>
     },
     
     {

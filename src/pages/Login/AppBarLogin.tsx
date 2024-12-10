@@ -6,11 +6,12 @@ import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
+import { useNavigate } from 'react-router-dom';
 // import AdbIcon from '@mui/icons-material/Adb';
 
 
 function AppBarLogin() {
-  
+  const navigate=useNavigate()
 
   return (
     <AppBar position="static" sx={{background:'white'}}>
@@ -77,7 +78,7 @@ function AppBarLogin() {
                 boxShadow: "0px 4px 6px rgba(0, 0, 0, 0.1)",
                fontSize:12,
                fontWeight:'normal'
-            }}>Sign Up</Button>
+            }} onClick={()=>navigate('/sign')}>Sign Up</Button>
           </Box>
         </Toolbar>
       </Container>
