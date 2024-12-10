@@ -21,6 +21,11 @@ export const routes= [
         element:<Login/>
     },
     {
+        path:'/sign',
+        element:<Login/>
+    },
+    
+    {
         path:'*',
         element:<NotFound/>
     }

@@ -1,4 +1,4 @@
-import { Input } from 'antd'
+import { Input, Typography } from 'antd'
 import { useEffect, useState } from 'react';
 
 
@@ -48,6 +48,7 @@ export default function InputPassWord({data}: InputPassWordTypes) {
   //   ]}
   // >
       <>
+       <Typography    style={{width: '89%', display:'flex',alignItems:'center',margin:'5px auto'}}> {props.label}</Typography>
       <Input.Password
           style={{ height: '50px' ,width: '90%', display:'flex',alignItems:'center',margin:'20px auto'}}
           onChange={onChange} // Handle input change

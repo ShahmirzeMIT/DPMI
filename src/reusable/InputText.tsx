@@ -1,4 +1,4 @@
-import {  Input } from 'antd';
+import {  Input, Typography } from 'antd';
 import { useEffect, useState } from 'react';
 
 interface InputTextProps {
@@ -45,6 +45,7 @@ export default function InputText({ data }: InputTextProps) {
     //   ]}
     // >
     <>
+    <Typography    style={{width: '89%', display:'flex',alignItems:'center',margin:'5px auto'}}> {props.label}</Typography>
     <Input
         style={{ height: '50px' ,width: '90%', display:'flex',alignItems:'center',margin:'0 auto'}}
         onChange={onChange} // Handle input change
