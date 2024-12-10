@@ -3,59 +3,21 @@ import InputText from '../../reusable/InputText';
 import InputPassWord from '../../reusable/InputPassWord';
 import ButtonSub from '../../reusable/ButtonSub';
 import { Link } from 'react-router-dom';
-import { useState } from 'react';
 import ReCAPTCHA from "react-google-recaptcha";
+import mainProps from './mainProps';
+import { stylesLoginPage } from '../../styles/PageStyles/loginPageStyles';
 
 export default function MainLogin() {
-  const [isVerified, setIsVerified] = useState(false);
+  const {isVerified, email,  handleVerify, passWord}=mainProps()
 
-
-  const handleVerify = (token:any) => {
-    console.log("reCAPTCHA token:", token);
-    setIsVerified(true);
-  };
   return (
-    <Box 
-      sx={{
-        background: "linear-gradient(303deg, #4d7aff, #4d7aff 15%, #f5f5f5 0, #f5f5f5 88%, #4d7aff 0, #4d7aff)",
-        backgroundPositionY: "00px",
-        backgroundRepeat: "no-repeat",
-        paddingBottom:" 91px",
-        // backgroundImage: "linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%)",
-        minHeight: '748px',
-        height: '100%',
-        display:'flex',
-        alignItems:'center',
-        flexDirection:'column',justifyContent:'space-around'
-      }}
-    >
-      {/* <h1  >Login to Logo<//h1> */}
-      <Box sx={{minWidth:"400px",width:"40%",margin:"0px auto",padding:'100px 0',boxShadow: "rgba(99, 99, 99, 0.2) 0px 2px 8px 0px",borderRadius:'5px'}}>
-        <InputText data={
-            {
-              name:'email',
-              value:'',
-              label:'Email',
-              email:true,
-              required:true,
-              message:'Please input your email!',
-              onChange:(e:any)=>{console.log(e);
-              }
-            }
-          
-          }/>
-        <InputPassWord data={{
-          name:'password',
-          value:'',
-          label:'Password',
-          email:true,
-          required:true,
-          message:'Please input your password!',
-          onChange:(e:any)=>{console.log(e);
-          }
-        }}/>
+    <Box  sx={{...stylesLoginPage.mainBox}}>
+      <h1  style={{fontSize:'50px'}}>Login to Logo</h1>
+      <Box sx={{...stylesLoginPage.formBox}}>
+        <InputText data={email}/>
+        <InputPassWord data={passWord}/>
         <br />
-        <Link to="/forgot-password" style={{margin:'50px 35px'}}>Forgot Your Password?</Link>
+        <Link to="/forgot-password" style={{...stylesLoginPage.frgtPass}}>Forgot Your Password?</Link>
         <Box sx={{margin:'5px 20px'}}>
           {
             isVerified?<></>: <ReCAPTCHA
@@ -63,7 +25,6 @@ export default function MainLogin() {
             onChange={handleVerify} 
           />  
           }
-         
         </Box>
          
         <ButtonSub/>

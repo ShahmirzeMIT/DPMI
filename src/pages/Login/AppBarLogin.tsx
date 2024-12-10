@@ -43,7 +43,7 @@ function AppBarLogin() {
             //   onClick={handleOpenNavMenu}
               color="inherit"
             >
-              {/* <MenuIcon /> */}
+               LOGO
             </IconButton>
             
           </Box>
@@ -61,6 +61,7 @@ function AppBarLogin() {
               fontWeight: 700,
               letterSpacing: '.3rem',
               color: 'inherit',
+              // fontSize:{xs:'10px',md:'12px',sm:'14px'}, 
               textDecoration: 'none',
             }}
           >
@@ -69,12 +70,13 @@ function AppBarLogin() {
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
           </Box>
           <Box sx={{display:'flex',alignItems:'center',justifyContent:'space-between'}}>
-            <Typography sx={{color:'black',fontSize:'17px',marginRight:'20px'}}>Don't Have Account</Typography>
+            <Typography sx={{color:'black',marginRight:'20px', fontSize:{xs:'10px',md:'14px',sm:'16px'}}}>Don't Have Account</Typography>
             <Button style={{
                 backgroundImage: "linear-gradient(to top, #1e3c72 0%, #1e3c72 1%, #2a5298 100%)",
-                // background: "linear-gradient(90deg, #4b6cd7, #182898)", /* Blue gradient */
                 color: "white",
                 boxShadow: "0px 4px 6px rgba(0, 0, 0, 0.1)",
+               fontSize:12,
+               fontWeight:'normal'
             }}>Sign Up</Button>
           </Box>
         </Toolbar>

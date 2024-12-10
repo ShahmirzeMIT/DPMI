@@ -14,7 +14,6 @@ export const routes= [
             {path:"/",element:<HomePage/>},
             {path:"/home",element:<HomePage/>},
             {path:"/courses",element:<Courses/>},
-            {path:"*",element:<NotFound/>}
         ]
     },
     {
