@@ -10,7 +10,7 @@ import { Button } from 'antd';
 import { FaGoogle } from "react-icons/fa";
 import { FaApple } from "react-icons/fa";
 export default function MainLogin() {
-  const {isVerified, email,  handleVerify, passWord}=mainProps()
+  const {isVerified, email,  handleVerify, passWord,onSubmit}=mainProps()
 
   return (
     <Box  sx={{...stylesLoginPage.mainBox}}>
@@ -33,8 +33,10 @@ export default function MainLogin() {
           />  
           }
         </Box>
-         
-        <ButtonSub/>
+         <Box onClick={onSubmit}>
+          <ButtonSub/>
+         </Box>
+        
       </Box>
 
     </Box>

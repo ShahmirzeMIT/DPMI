@@ -1,7 +1,10 @@
 import { useState } from 'react';
+import { useAuth } from '../../Auth/AutchContext';
 
-export default function mainProps() {
+export default function mainProps() { 
+  const {setAuthToken}=useAuth()
   const validateEmail = (value: string) => {
+   
     
     const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
@@ -93,6 +96,12 @@ export default function mainProps() {
     status: false,
   });
 
+  const onSubmit=() => {
+setAuthToken(passWord.value)
+    console.log('Email:', email);
+    console.log('Password:', passWord);
+  }
+
   return {
     isVerified,
     setIsVerified,
@@ -101,5 +110,6 @@ export default function mainProps() {
     handleVerify,
     emailChange,
     passWord,
+    onSubmit
   };
 }

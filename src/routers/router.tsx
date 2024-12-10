@@ -4,11 +4,12 @@ import NotFound from "../pages/NotFound/NotFound";
 import HomePage from "../pages/Home/HomePage";
 import Courses from "../pages/Courses/Courses";
 import Login from "../pages/Login/Login";
+import { ProtectedRoute } from "./ProtectedRouter";
 
 export const routes= [
     {
         path:'/',
-        element:<App/>,
+        element:<ProtectedRoute><App/>,</ProtectedRoute>,
         errorElement:<NotFound/>,
         children:[
             {path:"/",element:<HomePage/>},
