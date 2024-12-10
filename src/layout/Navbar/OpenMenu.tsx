@@ -5,9 +5,11 @@ import { BsFillTriangleFill } from "react-icons/bs";
 import { MdKeyboardArrowRight } from "react-icons/md";
 import AnarRustamov from '../../assets/images/AnarRustamov.jfif'
 import { OpenMenuProps } from '../../types/openMenuType';
+import { useNavigate } from 'react-router';
 const settings = ['Account','Profile', 'Prefences', 'Documets','FAQ'];
 
 export default function OpenMenu({anchorElUser,handleCloseUserMenu,handleOpenUserMenu}:OpenMenuProps) {
+  const navigate= useNavigate()
   return (
     <Box sx={{ flexGrow: 0 ,  position:'relative',overflow:'hidden'}}>
     <Tooltip title="Open settings" >
@@ -49,7 +51,9 @@ export default function OpenMenu({anchorElUser,handleCloseUserMenu,handleOpenUse
       <Box sx={{...navbarStyles.horizontalDiveder}}>
         <Button style={{...navbarStyles.openMenuBtn}}>Give FeedBack</Button>
          <Box sx={{...navbarStyles.verticalDivider}}></Box>
-        <Button style={{...navbarStyles.openMenuBtn}}>Sign Out</Button>
+        <Button style={{...navbarStyles.openMenuBtn}} onClick={()=>{
+         navigate('/login')
+        }}> Sign Out</Button>
       </Box>
     </Menu>
   </Box>
