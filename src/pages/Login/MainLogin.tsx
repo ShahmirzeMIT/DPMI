@@ -17,7 +17,11 @@ export default function MainLogin() {
   return (
     <Box 
       sx={{
-        backgroundImage: "linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%)",
+        background: "linear-gradient(303deg, #4d7aff, #4d7aff 15%, #f5f5f5 0, #f5f5f5 88%, #4d7aff 0, #4d7aff)",
+        backgroundPositionY: "00px",
+        backgroundRepeat: "no-repeat",
+        paddingBottom:" 91px",
+        // backgroundImage: "linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%)",
         minHeight: '748px',
         height: '100%',
         display:'flex',
@@ -25,7 +29,7 @@ export default function MainLogin() {
         flexDirection:'column',justifyContent:'space-around'
       }}
     >
-      <h1  >Login to Logo</h1>
+      {/* <h1  >Login to Logo<//h1> */}
       <Box sx={{minWidth:"400px",width:"40%",margin:"0px auto",padding:'100px 0',boxShadow: "rgba(99, 99, 99, 0.2) 0px 2px 8px 0px",borderRadius:'5px'}}>
         <InputText data={
             {
