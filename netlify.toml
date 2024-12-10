@@ -1,0 +1,9 @@
+# Global settings applied to the whole site.
+[build]
+  publish = "dist"  # Build komutunun çıktılarını içeren dizin
+  command = "npm run build"  # Sitenizi build etmek için kullanılacak komut
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
