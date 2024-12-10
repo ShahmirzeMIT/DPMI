@@ -1,6 +1,6 @@
 export const styleTaskStatus={
     container:{
-        display:"flex",justifyContent:"space-between",background:'#dfd9d2',  width: { xs: "400px", sm: "98%" },
+        display:"flex",justifyContent:"space-between",background:'#dfd9d2',  width: { xs: "350px", sm: "98%" },
         borderRadius:'1px',height:'60px' ,alignItems:'center',borderBottom:"1px solid white" 
     },
     flex:{

@@ -9,8 +9,8 @@ export const stylesHomePage={
     },
     secondBox:{
         width: {
-            xs: "400px",
-            sm: "100%",
+            xs: "350px",
+            sm: "90%",
             md: "48%",
             lg: "38%", 
           },
@@ -20,7 +20,7 @@ export const stylesHomePage={
 
 export const stylesHomePageTask={
     box:{
-        width: { xs: "400px", sm: "98%" } 
+        width: { xs: "350px", sm: "90%" } 
     },
     btn:{
          color: "black" ,background:'white',borderRadius:'20px', fontWeight:'600',
