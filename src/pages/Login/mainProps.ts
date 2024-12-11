@@ -1,8 +1,10 @@
 import { useState } from 'react';
 import { useAuth } from '../../Auth/AutchContext';
+import { useNavigate } from 'react-router-dom';
 
 export default function mainProps() { 
   const {setAuthToken}=useAuth()
+  const navigate = useNavigate();
   const validateEmail = (value: string) => {
    
     
@@ -36,6 +38,14 @@ export default function mainProps() {
       value: e.value, // Only update the value
     }));
     validateEmail(e.value); // Call validation
+  };
+
+
+  const nameChange = (e: { name: string; value: string }) => {
+    setName((prev) => ({
+      ...prev,
+      value: e.value, // Only update the value
+    }));
   };
 
   const validatePassword = (value: string) => {
@@ -84,6 +94,16 @@ export default function mainProps() {
     onChange: emailChange,
     status: false,
   });
+  const [name, setName] = useState({
+    name: 'name',
+    value: '',
+    label: 'Name',
+    email: true,
+    required: true,
+    message: 'Please input your email!',
+    onChange: nameChange,
+    status: false,
+  });
 
   const [passWord, setPassWord] = useState({
     name: 'password',
@@ -97,7 +117,8 @@ export default function mainProps() {
   });
 
   const onSubmit=() => {
-setAuthToken(passWord.value)
+    setAuthToken(passWord.value)
+    navigate('/home')
     console.log('Email:', email);
     console.log('Password:', passWord);
   }
@@ -110,6 +131,7 @@ setAuthToken(passWord.value)
     handleVerify,
     emailChange,
     passWord,
-    onSubmit
+    onSubmit,
+    name, setName
   };
 }
