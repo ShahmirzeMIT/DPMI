@@ -28,7 +28,7 @@ export default function MainLogin() {
         <Box sx={{margin:'5px 20px'}}>
           {
             isVerified?<></>: <ReCAPTCHA
-            sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI" 
+            sitekey="6LddrZkqAAAAAL4ukJpzELXXl9-mdwRDMue3Y-fY" 
             onChange={handleVerify} 
           />  
           }
