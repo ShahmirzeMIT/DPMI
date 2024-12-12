@@ -1,6 +1,6 @@
 import { Navigate, useLocation } from "react-router-dom";
 import { ReactNode } from 'react';
-import { useAuth } from "../Auth/AutchContext";
+import { useAuth } from "../auth/AutchContext";
 interface AuthProviderProps {
     children?: ReactNode;
 }

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useAuth } from '../../Auth/AutchContext';
+import { useAuth } from '../../auth/AutchContext';
 import { useNavigate } from 'react-router-dom';
 
 export default function mainProps() { 
