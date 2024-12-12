@@ -25,12 +25,13 @@ export default function MainLogin() {
         <br />
         <Link to="/forgot-password" style={{...stylesLoginPage.frgtPass}}>Forgot Your Password?</Link>
         <Box sx={{margin:'5px 20px'}}>
-          {
-            isVerified?<></>: <ReCAPTCHA
+          {/* {
+            isVerified?<></>:  */}
+            <ReCAPTCHA
             sitekey="6LddrZkqAAAAAL4ukJpzELXXl9-mdwRDMue3Y-fY" 
             onChange={handleVerify} 
           />  
-          }
+          {/* // } */}
         </Box>
          <Box onClick={onSubmit}>
           <ButtonSub/>
