@@ -1,12 +1,8 @@
 import { Box } from '@mui/material';
 import { Select, Typography } from 'antd';
 import { useEffect, useState } from 'react';
-
-export interface Option {
-  name: string;
-  key: string;
-  value: string;
-}
+import { selectSingleStyle } from '../styles/ComponentsStyles/selectSingleStyle';
+import { Option, SelectSingleProps } from '../types/selectSingleType';
 
 const options: Option[] = [
   { name: '1', value: 'Not Identified', key: '1' },
@@ -17,18 +13,6 @@ const options: Option[] = [
   { name: '6', value: 'Cancelled', key: '6' },
 ];
 
-interface SelectSingleProps {
-  data: {
-    api: string;
-    name: string;
-    value: string;
-    label: string;
-    payload: unknown;
-    disabled?: boolean;
-    status?: "" | "warning" | "error"; 
-    onChange: (selectedOption: Option) => void;
-  };
-}
 
 export default function SelectSingle({ data }: SelectSingleProps) {
   const [props, setProps] = useState(data);
@@ -55,15 +39,8 @@ export default function SelectSingle({ data }: SelectSingleProps) {
   };
 
   return (
-    <Box sx={{ display: 'flex', flexDirection: 'column' }}>
-      <Typography
-        style={{
-          textAlign: 'start',
-          fontWeight: '400',
-          fontSize: '14px',
-          lineHeight: 2,
-        }}
-      >
+    <Box sx={{...selectSingleStyle.container}}>
+      <Typography  style={{...selectSingleStyle.typography}} >
         {props.label}
       </Typography>
       <Select
@@ -71,11 +48,7 @@ export default function SelectSingle({ data }: SelectSingleProps) {
         status={props.status || ""} // Ensure status is one of the valid values
         showSearch
         disabled={props.disabled}
-        style={{
-          width: '100%',
-          height: '40px',
-          textAlign: 'start',
-        }}
+        style={{...selectSingleStyle.select}}
         placeholder="Search to Select"
         optionFilterProp="label"
         filterSort={(optionA, optionB) =>

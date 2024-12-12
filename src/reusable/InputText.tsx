@@ -1,18 +1,9 @@
 import {  Input, Typography } from 'antd';
 import { useEffect, useState } from 'react';
+import { InputTextProps } from '../types/inputTextType';
+import { inputTextStyle } from '../styles/ComponentsStyles/inputTextStyle';
 
-interface InputTextProps {
-  data: {
-    value: string;
-    name: string;
-    label: string;
-    message: string;
-    required?: boolean;
-    email?: boolean;
-    status?: boolean; // Indicates whether to show an error
-    onChange: (e: { name: string; value: string }) => void;
-  };
-}
+
 
 export default function InputText({ data }: InputTextProps) {
   const [props, setProps] = useState(data);
@@ -32,22 +23,11 @@ export default function InputText({ data }: InputTextProps) {
   };
 
   return (
-    // <Form.Item
-    //   layout="vertical"
-    //   name={props.name}
-    //   label={props.label}
-    //   style={{ width: '90%', margin: '10px auto' }}
-    //   rules={[
-    //     {
-    //       required: props.required,
-    //       message: props.message,
-    //     },
-    //   ]}
-    // >
+  
     <>
-    <Typography    style={{width: '89%', display:'flex',alignItems:'center',margin:'5px auto'}}> {props.label}</Typography>
+    <Typography    style={{...inputTextStyle.tyography}}> {props.label}</Typography>
     <Input
-        style={{ height: '50px' ,width: '90%', display:'flex',alignItems:'center',margin:'0 auto'}}
+        style={{...inputTextStyle.input}}
         onChange={onChange} // Handle input change
         value={props.value} // Maintain the value from the state
         name={props.name}
@@ -55,10 +35,9 @@ export default function InputText({ data }: InputTextProps) {
       />
       {/* Show error message if status is true */}
       {props.status && (
-        <div style={{ color: 'red', marginTop: '5px',width: '90%', display:'flex',alignItems:'center',margin:'0 auto' }}>{props.message}</div>
+        <div style={{...inputTextStyle.message}}>{props.message}</div>
       )}
     </>
       
-    // </Form.Item>
   );
 }
