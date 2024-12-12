@@ -10,7 +10,7 @@ import mainProps from '../Login/mainProps'
 import { FaGoogle } from "react-icons/fa";
 import { FaApple } from "react-icons/fa";
 export default function SignInForm() {
-    const {isVerified, email, name, handleVerify, passWord,onSubmit}=mainProps()
+    const { email, name, handleVerify, passWord,onSubmit}=mainProps()
   return (
     <Box  >
       <Box >
@@ -24,12 +24,13 @@ export default function SignInForm() {
 
         <Link to="/forgot-password" style={{...stylesLoginPage.frgtPass}}>Forgot Your Password?</Link>
         <Box sx={{margin:'5px 20px'}}>
-          {
-            isVerified?<></>: <ReCAPTCHA
+          {/* {
+            isVerified?<></>: */}
+             <ReCAPTCHA
             sitekey="6Lecr5kqAAAAABEOPjYvnDIfTEVF9JrfLDe870CF" 
             onChange={handleVerify} 
           />  
-          }
+          {/* } */}
         </Box>
          <Box onClick={onSubmit}>
           <ButtonSub/>

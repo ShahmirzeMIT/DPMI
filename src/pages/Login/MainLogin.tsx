@@ -10,7 +10,7 @@ import { Button } from 'antd';
 import { FaGoogle } from "react-icons/fa";
 import { FaApple } from "react-icons/fa";
 export default function MainLogin() {
-  const {isVerified, email,  handleVerify, passWord,onSubmit}=mainProps()
+  const { email,  handleVerify, passWord,onSubmit}=mainProps()
   return (
     <Box  sx={{...stylesLoginPage.mainBox}}>
       <h1  style={{fontSize:'50px'}}>Login to Logo</h1>
