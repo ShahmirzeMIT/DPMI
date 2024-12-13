@@ -1,30 +1,40 @@
 import { useState } from 'react';
-import { useAuth } from '../../auth/AutchContext';
+// Fixed import
 import { useNavigate } from 'react-router-dom';
+import { useAuth } from '../../auth/AutchContext';
 
-export default function mainProps() { 
-  const {setAuthToken}=useAuth()
+interface FieldProps {
+  name: string;
+  value: string;
+  label: string;
+  email: boolean;
+  required: boolean;
+  message: string;
+  onChange: (e: { name: string; value: string }) => void;
+  status: boolean;
+}
+
+export default function MainProps() { 
+  const { setAuthToken } = useAuth();
   const navigate = useNavigate();
+  const [isVerified, setIsVerified] = useState(false);
+
+
   const validateEmail = (value: string) => {
-   
-    
     const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
-    if ( emailPattern.test(value)) {
-        setEmail((prev) => ({
-            ...prev,
-            status: false,
-          }))
-     
-    } 
-    else {
-        setEmail((prev) => ({
-            ...prev,
-            status: true,
-            message: 'Please enter a valid email!', // Show error message
-          }));
+    if (emailPattern.test(value)) {
+      setEmail((prev) => ({
+        ...prev,
+        status: false,
+      }));
+    } else {
+      setEmail((prev) => ({
+        ...prev,
+        status: true,
+        message: 'Please enter a valid email!',
+      }));
     }
-   
   };
 
   const handleVerify = (token: any) => {
@@ -35,21 +45,19 @@ export default function mainProps() {
   const emailChange = (e: { name: string; value: string }) => {
     setEmail((prev) => ({
       ...prev,
-      value: e.value, // Only update the value
+      value: e.value,
     }));
-    validateEmail(e.value); // Call validation
+    validateEmail(e.value);
   };
-
 
   const nameChange = (e: { name: string; value: string }) => {
     setName((prev) => ({
       ...prev,
-      value: e.value, // Only update the value
+      value: e.value,
     }));
   };
 
   const validatePassword = (value: string) => {
-    // Regular expression for password validation
     const passwordPattern = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*])[a-zA-Z\d!@#$%^&*]{10,}$/;
   
     if (!value) {
@@ -62,8 +70,7 @@ export default function mainProps() {
       setPassWord((prev) => ({
         ...prev,
         status: true,
-        message:
-          'Password must include at least 1 digit, 1 special character, 1 uppercase letter, 1 lowercase letter, and be at least 10 characters long.',
+        message: 'Password must include at least 1 digit, 1 special character, 1 uppercase letter, 1 lowercase letter, and be at least 10 characters long.',
       }));
     } else {
       setPassWord((prev) => ({
@@ -77,14 +84,12 @@ export default function mainProps() {
   const passWordChange = (e: { name: string; value: string }) => {
     setPassWord((prev) => ({
       ...prev,
-      value: e.value, // Only update the value
+      value: e.value,
     }));
     validatePassword(e.value);
   };
 
-  const [isVerified, setIsVerified] = useState(false);
-
-  const [email, setEmail] = useState({
+  const [email, setEmail] = useState<FieldProps>({
     name: 'email',
     value: '',
     label: 'Email',
@@ -94,7 +99,8 @@ export default function mainProps() {
     onChange: emailChange,
     status: false,
   });
-  const [name, setName] = useState({
+
+  const [name, setName] = useState<FieldProps>({
     name: 'name',
     value: '',
     label: 'Name',
@@ -105,7 +111,7 @@ export default function mainProps() {
     status: false,
   });
 
-  const [passWord, setPassWord] = useState({
+  const [passWord, setPassWord] = useState<FieldProps>({
     name: 'password',
     value: '',
     label: 'Password',
@@ -116,12 +122,12 @@ export default function mainProps() {
     status: false,
   });
 
-  const onSubmit=() => {
-    setAuthToken(passWord.value)
-    navigate('/home')
+  const onSubmit = () => {
+    setAuthToken(passWord.value);
+    navigate('/home');
     console.log('Email:', email);
     console.log('Password:', passWord);
-  }
+  };
 
   return {
     isVerified,
@@ -132,6 +138,7 @@ export default function mainProps() {
     emailChange,
     passWord,
     onSubmit,
-    name, setName
+    name,
+    setName
   };
 }
