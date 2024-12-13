@@ -6,10 +6,10 @@ export const filterGroupFlatStyle={
             background:position=="start"?"#c0b8ae":"",border:'1px solid #c0b8ae'
     }),
     radioGroup1:(position:string)=>({
-        position:'absolute' as 'absolute',top:'-5px',fontSize:'16px',color:position=="start" ?'white':'inherit' 
+        position:'absolute' as 'absolute',top:'-3px',fontSize:'16px',color:position=="start" ?'white':'inherit' 
     }),
     radioGroup2:(position:string)=>({
-       marginLeft:'13px',fontSize:'16px',marginTop:'5px',color:position=="start" ?'white':'inherit'
+       marginLeft:'13px',fontSize:'16px',marginTop:'7px',color:position=="start" ?'white':'inherit'
     }),
     radioButton:(position:string)=>({
        background:position=="end"?"#c0b8ae":"",border:'1px solid #c0b8ae'
