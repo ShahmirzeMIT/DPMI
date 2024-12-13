@@ -14,7 +14,6 @@ export default function Bottom() {
               // aria-haspopup="true"
               // onClick={handleOpenNavMenu}
               color="inherit"
-              sx={{}}
             >
              Logo
             </IconButton>
