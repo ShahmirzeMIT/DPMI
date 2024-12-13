@@ -16,9 +16,9 @@ export default function Bookmark() {
           onClick={onClick}
           sx={{
             position: "relative",
-            width: "30px", // Width of the bookmark
-            height: "60px", // Height of the main rectangle
-            backgroundColor: active ? "#4a90e2" : "#dfd9d2", // Blue when active, neutral when inactive
+            width: "30px", 
+            height: "60px", 
+            backgroundColor: active ? "#4a90e2" : "#dfd9d2", 
             display: "flex",
             cursor: "pointer",
             justifyContent: "center",

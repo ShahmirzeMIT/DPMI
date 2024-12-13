@@ -55,7 +55,8 @@ export default function CourseCard({ data }: CourseCardProps) {
                   margin: '0 15px',
                   fontSize: "15px",
                   textAlign: "left",
-                  whiteSpace: "normal", // Allow the text to wrap
+                  whiteSpace: "normal", 
+                  color:'#c0b8ae'// Allow the text to wrap
                 }}
               >
                 ENTREPRENEURSHIP I: CUSTOMER DISCOVERY
@@ -75,8 +76,8 @@ export default function CourseCard({ data }: CourseCardProps) {
           minHeight: 250,
         }}
       >
-        <Typography>Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias non cumque omnis, hic ullam earum! Vero reiciendis voluptate excepturi impedit?</Typography>
-        <Button style={{ height: '20px', fontSize: '10px', textTransform: 'uppercase' }}>Entrepreneurship</Button>
+        <Typography style={{color:'#c0b8ae'}}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias non cumque omnis, hic ullam earum! Vero reiciendis voluptate excepturi impedit?</Typography>
+        <Button style={{ height: '20px', fontSize: '10px', textTransform: 'uppercase',color:'#c0b8ae' }}>Entrepreneurship</Button>
       </Card>
 
       {/* Status Box */}
@@ -90,7 +91,7 @@ export default function CourseCard({ data }: CourseCardProps) {
           borderBottomRightRadius: '5px',
         }}
       >
-        <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '0 5px', position: 'relative' }}>
+        <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '0 25px', position: 'relative', }}>
 
           <Box>
             <Typography style={{ fontSize: '12px', color: 'white' }}>Lesson Completed</Typography>
@@ -104,8 +105,8 @@ export default function CourseCard({ data }: CourseCardProps) {
           </Box>
         {
             data.status=="completed"?<Box>
-            <Typography style={{ fontSize: '12px', color: 'white', marginBottom: '10px', position: 'absolute', top: '1px' }}>
-              Lesson Completed
+            <Typography style={{ fontSize: '12px', color: 'white', marginBottom: '10px', position: 'absolute', top: '1px', textAlign:'center',    marginLeft: "29px" }}>
+               Completed On
             </Typography>
             <Typography style={{ color: 'white', fontSize: '20px' }}>October 22 2024</Typography>
           </Box>:""
