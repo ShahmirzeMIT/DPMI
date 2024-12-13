@@ -1,5 +1,5 @@
 import { Box } from "@mui/material";
-import { Avatar, Button, Card, Divider, Space, Typography } from "antd";
+import { Avatar, Card, Divider, Space, Typography } from "antd";
 import Bookmark from "./BookMark";
 import { MdLock } from "react-icons/md";
 // Status mapping with color
@@ -43,7 +43,7 @@ export default function CourseCard({ data }: CourseCardProps) {
               height: "80px",
             }}
           >
-            <Box>
+            <Box sx={{borderRadius:'50%', background:'#c0b8ae',width:'50px',height:'50px',textAlign:'center',verticalAlign:'middle',display:'flex',alignItems:'center',justifyContent:'center'}}>
                 {
                     data.status=='locked'?
                     <MdLock/>:   <Avatar src="https://api.dicebear.com/7.x/miniavs/svg?seed=1" />
@@ -53,10 +53,11 @@ export default function CourseCard({ data }: CourseCardProps) {
               <h3
                 style={{
                   margin: '0 15px',
-                  fontSize: "15px",
+                  fontSize: "25px",
                   textAlign: "left",
                   whiteSpace: "normal", 
-                  fontWeight: 'bold',
+                  lineHeight:'28px',
+                  fontWeight: '600',
                   color:'#c0b8ae'// Allow the text to wrap
                 }}
               >
@@ -71,57 +72,127 @@ export default function CourseCard({ data }: CourseCardProps) {
           </Box>
         }
         style={{
-          minWidth: 400,
-          width: '500px',
+          minWidth: 540,
+          width: '540px',
           position: "relative",
-          minHeight: 250,
+          minHeight: 220,
         }}
       >
-        <Typography style={{color:'#c0b8ae'}}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias non cumque omnis, hic ullam earum! Vero reiciendis voluptate excepturi impedit?</Typography>
-        <Button style={{ height: '20px', fontSize: '10px', textTransform: 'uppercase',color:'#c0b8ae' }}>Entrepreneurship</Button>
+        <Typography style={{color:'#c0b8ae',height:"56px",fontSize:'15px',lineHeight:'17px'}}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias non cumque omnis, hic ullam earum! Vero reiciendis voluptate excepturi impedit?</Typography>
+        {/* <Button style={{ height: '20px', fontSize: '10px', textTransform: 'uppercase',color:'#c0b8ae' }}>Entrepreneurship</Button> */}
       </Card>
 
       {/* Status Box */}
       <Box
-        sx={{
-          background: statusColor, // Apply dynamic background color based on status
-          width: '100%',
-          height: '60px',
-          position: 'absolute',
-          bottom: '-10px',
-          borderBottomRightRadius: '5px',
-        }}
-      >
-        <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '0 25px', position: 'relative', }}>
+  sx={{
+    background: statusColor, // Dynamic background color
+    width: '99.5%',
+    height: '70px',
+    position: 'absolute',
+    bottom: '-10px',
+    borderBottomRightRadius: '5px',
+    borderBottomLeftRadius: '5px',
+    padding: '5px 15px',
+    display: 'flex',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+  }}
+>
+  <Box sx={{ lineHeight: 1 }}> {/* Ensures no extra space */}
+  <Box>
+  <Typography
+    style={{
+      fontSize: '12px',
+      color: 'white',
+      textTransform: 'uppercase',
+      margin: 0, // Remove any margin
+      padding: 0, // Remove any padding
+      lineHeight: '1', // Set line height to 1 for no extra spacing
+    }}
+  >
+      Completed
+  </Typography>
+  <Typography
+    style={{
+      fontSize:data.status=="new" || data.status=="locked"?'44px': '12px',
+      color: 'white',
+      fontWeight: '600',
+      margin: 0, // Remove any margin
+      padding: 0, // Remove any padding
+      lineHeight: '1', // Ensures no extra space
+    }}
+  >
+    {
+        data.status=="ongoing" || data.status=="completed"?
+        <>
+        <span style={{fontSize: '44px',
+            color: 'white',
+            fontWeight: '600',
+            margin: 0, // Remove any margin
+            padding: 0, // Remove any padding
+            lineHeight: '1'}}>5</span>
+             <span style={{ fontSize: '18px' }}>/</span>
+        </>
+        
+             :''
+    }
+    
+      6
+  </Typography>
+</Box>
 
-          <Box>
-            <Typography style={{ fontSize: '12px', color: 'white' }}>Lesson Completed</Typography>
-            <Typography style={{ color: 'white',fontSize: data.status=="locked" || data.status=="new"?"30px":"initial" }}>
-            {
-                data.status=="locked" || data.status=="new"?""
-                :<span style={{ fontSize: '30px', color: 'white' }}>2/</span>
-            }
-              3
-            </Typography>
-          </Box>
-        {
+
+  </Box>
+  {
             data.status=="completed"?<Box>
-            <Typography style={{ fontSize: '12px', color: 'white', marginBottom: '10px', position: 'absolute', top: '1px', textAlign:'center',    marginLeft: "29px" }}>
+            <Typography style={{
+      fontSize: '12px',
+      color: 'white',
+      textTransform: 'uppercase',
+      margin: 0, // Remove any margin
+      padding: 0, // Remove any padding
+      lineHeight: '1', // Set line height to 1 for no extra spacing
+   }}>
                Completed On
             </Typography>
-            <Typography style={{ color: 'white', fontSize: '15px' }}>October 22 2024</Typography>
+            <Typography style={{ color: 'white', fontSize: '19px',textTransform: 'uppercase',fontWeight:'600' }}>October 22 2024</Typography>
           </Box>:""
         }
-          
+       <Box
+  sx={{
+    display: 'flex',
+    alignItems: 'center',
+    gap: '5px',
+    padding: '0 20px', // Adds 20px padding to the left and right
+    justifyContent: 'center', // Centers the content horizontally
+    position: 'relative', // Allows for precise alignment if needed
+  }}
+>
+  <Divider
+    type="vertical"
+    style={{
+      height: '55px',
+      background: 'white',
+    }}
+  />
+  <Typography
+    style={{
+      color: 'white',
+      fontSize: '25px',
+      textAlign: 'center',
+      textTransform: 'uppercase',
+      fontWeight: 'bold',
+      paddingBottom: '10px',
+    }}
+  >
+    RESUME
+  </Typography>
+</Box>
 
-          <Box sx={{ display: 'flex', alignItems: 'center', gap: '5px', padding: '0 40px' }}>
-            <Divider type="vertical" style={{ height: '50px', background: 'white' }} />
-            <Typography style={{ color: 'white', fontSize: '15px', textAlign: 'center', textTransform: 'uppercase', fontWeight: 'bold' }}>
-              Review
-            </Typography>
-          </Box>
-        </Box>
-      </Box>
+        {/* </Box> */}
+</Box>
+
+
     </Space>
   );
 }
