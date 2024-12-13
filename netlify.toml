@@ -1,11 +1,12 @@
 # Global settings applied to the whole site.
 [build]
-  publish = "dist"  # Build komutunun çıktılarını içeren dizin
-  command = "npm run build"  # Sitenizi build etmek için kullanılacak komut
+  command = "npm run build"
+  publish = "dist" # Vite build çıktısını "dist" içine koyar
+
 
 [build.environment]
   NODE_VERSION = "20.14.0"
-  
+
 [[redirects]]
   from = "/*"
   to = "/index.html"
