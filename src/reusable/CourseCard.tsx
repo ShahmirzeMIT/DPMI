@@ -56,6 +56,7 @@ export default function CourseCard({ data }: CourseCardProps) {
                   fontSize: "15px",
                   textAlign: "left",
                   whiteSpace: "normal", 
+                  fontWeight: 'bold',
                   color:'#c0b8ae'// Allow the text to wrap
                 }}
               >
@@ -115,7 +116,7 @@ export default function CourseCard({ data }: CourseCardProps) {
 
           <Box sx={{ display: 'flex', alignItems: 'center', gap: '5px', padding: '0 40px' }}>
             <Divider type="vertical" style={{ height: '50px', background: 'white' }} />
-            <Typography style={{ color: 'white', fontSize: '15px', textAlign: 'center', textTransform: 'uppercase', fontWeight: 'bold' }}>
+            <Typography style={{ color: 'white', fontSize: '20px', textAlign: 'center', textTransform: 'uppercase', fontWeight: 'bold' }}>
               Review
             </Typography>
           </Box>
