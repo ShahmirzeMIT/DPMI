@@ -40,7 +40,7 @@ export default function CourseCard({ data }: CourseCardProps) {
               display: "flex",
               justifyContent: "flex-start",
               alignItems: "center",
-              height: "100px",
+              height: "80px",
             }}
           >
             <Box>
@@ -87,7 +87,7 @@ export default function CourseCard({ data }: CourseCardProps) {
           width: '100%',
           height: '70px',
           position: 'absolute',
-          bottom: '-30px',
+          bottom: '-10px',
           borderBottomRightRadius: '5px',
         }}
       >
@@ -95,10 +95,10 @@ export default function CourseCard({ data }: CourseCardProps) {
 
           <Box>
             <Typography style={{ fontSize: '12px', color: 'white' }}>Lesson Completed</Typography>
-            <Typography style={{ color: 'white',fontSize: data.status=="locked" || data.status=="new"?"40px":"initial" }}>
+            <Typography style={{ color: 'white',fontSize: data.status=="locked" || data.status=="new"?"35px":"initial" }}>
             {
                 data.status=="locked" || data.status=="new"?""
-                :<span style={{ fontSize: '40px', color: 'white' }}>2/</span>
+                :<span style={{ fontSize: '35px', color: 'white' }}>2/</span>
             }
               3
             </Typography>
@@ -115,7 +115,7 @@ export default function CourseCard({ data }: CourseCardProps) {
 
           <Box sx={{ display: 'flex', alignItems: 'center', gap: '5px', padding: '0 40px' }}>
             <Divider type="vertical" style={{ height: '50px', background: 'white' }} />
-            <Typography style={{ color: 'white', fontSize: '20px', textAlign: 'center', textTransform: 'uppercase', fontWeight: 'bold' }}>
+            <Typography style={{ color: 'white', fontSize: '15px', textAlign: 'center', textTransform: 'uppercase', fontWeight: 'bold' }}>
               Review
             </Typography>
           </Box>

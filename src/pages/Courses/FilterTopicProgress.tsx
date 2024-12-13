@@ -15,7 +15,6 @@ export default function FilterTopicProgress() {
       // Reset the group to only include "Any"
       setGroup([selected]);
     } else {
-      // Remove "Any" and toggle the selection of the clicked button
       const newGroup = group.includes(selected)
         ? group.filter((item) => item !== selected) // Deselect
         : [...group.filter((item) => !item.startsWith("Any")), selected]; // Add selected
