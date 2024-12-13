@@ -159,35 +159,36 @@ export default function CourseCard({ data }: CourseCardProps) {
           </Box>:""
         }
        <Box
-  sx={{
-    display: 'flex',
-    alignItems: 'center',
-    gap: '5px',
-    padding: '0 20px', // Adds 20px padding to the left and right
-    justifyContent: 'center', // Centers the content horizontally
-    position: 'relative', // Allows for precise alignment if needed
-  }}
->
-  <Divider
-    type="vertical"
-    style={{
-      height: '55px',
-      background: 'white',
-    }}
-  />
-  <Typography
-    style={{
-      color: 'white',
-      fontSize: '25px',
-      textAlign: 'center',
-      textTransform: 'uppercase',
-      fontWeight: 'bold',
-      paddingBottom: '10px',
-    }}
-  >
-    RESUME
-  </Typography>
-</Box>
+            sx={{
+                display: 'flex',
+                alignItems: 'center', // Vertical alignment
+                justifyContent: 'center', // Horizontal alignment
+                padding: '0 20px', // Ensures left and right padding
+                height: '100px', // Define the height to properly center vertically
+                position: 'relative', // Allows further positioning if needed
+            }}
+            >
+            <Divider
+                type="vertical"
+                style={{
+                height: '55px',
+                background: 'white',
+                }}
+            />
+            <Box sx={{marginLeft:'20px'}}></Box>
+            <Typography
+                style={{
+                color: 'white',
+                fontSize: '25px',
+                textAlign: 'center', // Centers text within the Typography itself
+                textTransform: 'uppercase',
+                fontWeight: 'bold',
+                }}
+            >
+                RESUME
+            </Typography>
+            </Box>
+
 
         {/* </Box> */}
 </Box>
