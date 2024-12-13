@@ -4,13 +4,16 @@ import NotFound from "../pages/NotFound/NotFound";
 import HomePage from "../pages/Home/HomePage";
 import Courses from "../pages/Courses/Courses";
 import Login from "../pages/Login/Login";
-import { ProtectedRoute } from "./ProtectedRouter";
+// import { ProtectedRoute } from "./ProtectedRouter";
 import SignIn from "../pages/SignIn/SignIn";
 
 export const routes= [
     {
         path:'/',
-        element:<ProtectedRoute><App/>,</ProtectedRoute>,
+        element:
+        // <ProtectedRoute>
+            <App/>,
+            /* ,</ProtectedRoute>, */
         errorElement:<NotFound/>,
         children:[
             {path:"/",element:<HomePage/>},

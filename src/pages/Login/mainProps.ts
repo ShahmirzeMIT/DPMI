@@ -1,7 +1,7 @@
 import { useState } from 'react';
 // Fixed import
 import { useNavigate } from 'react-router-dom';
-import { useAuth } from '../../auth/AutchContext';
+// import { useAuth } from '../../auth/AutchContext';
 
 interface FieldProps {
   name: string;
@@ -15,7 +15,7 @@ interface FieldProps {
 }
 
 export default function MainProps() { 
-  const { setAuthToken } = useAuth();
+  // const { setAuthToken } = useAuth();
   const navigate = useNavigate();
   const [isVerified, setIsVerified] = useState(false);
 
@@ -123,7 +123,7 @@ export default function MainProps() {
   });
 
   const onSubmit = () => {
-    setAuthToken(passWord.value);
+    // setAuthToken(passWord.value);
     navigate('/home');
     console.log('Email:', email);
     console.log('Password:', passWord);
