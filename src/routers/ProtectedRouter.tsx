@@ -2,6 +2,7 @@ import { Navigate, useLocation } from "react-router-dom";
 import { ReactNode } from 'react';
 import { useAuth } from "../auth/AutchContext";
 
+
 interface ProtectedRouteProps {
     children: ReactNode;  // Ensure children is always passed to the component
 }
