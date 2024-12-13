@@ -1,8 +1,5 @@
-import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
 
-export default defineConfig({
-  base: '/', // Root veya alt dizin için doğru ayar
-  build: {
-    outDir: 'dist', // Çıktı klasörünün doğru olduğunu kontrol edin
-  },
-});
+export default {
+  plugins: [react()],
+};
