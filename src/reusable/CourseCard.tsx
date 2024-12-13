@@ -86,7 +86,7 @@ export default function CourseCard({ data }: CourseCardProps) {
         sx={{
           background: statusColor, // Apply dynamic background color based on status
           width: '100%',
-          height: '70px',
+          height: '60px',
           position: 'absolute',
           bottom: '-10px',
           borderBottomRightRadius: '5px',
@@ -96,10 +96,10 @@ export default function CourseCard({ data }: CourseCardProps) {
 
           <Box>
             <Typography style={{ fontSize: '12px', color: 'white' }}>Lesson Completed</Typography>
-            <Typography style={{ color: 'white',fontSize: data.status=="locked" || data.status=="new"?"35px":"initial" }}>
+            <Typography style={{ color: 'white',fontSize: data.status=="locked" || data.status=="new"?"30px":"initial" }}>
             {
                 data.status=="locked" || data.status=="new"?""
-                :<span style={{ fontSize: '35px', color: 'white' }}>2/</span>
+                :<span style={{ fontSize: '30px', color: 'white' }}>2/</span>
             }
               3
             </Typography>
@@ -109,14 +109,14 @@ export default function CourseCard({ data }: CourseCardProps) {
             <Typography style={{ fontSize: '12px', color: 'white', marginBottom: '10px', position: 'absolute', top: '1px', textAlign:'center',    marginLeft: "29px" }}>
                Completed On
             </Typography>
-            <Typography style={{ color: 'white', fontSize: '20px' }}>October 22 2024</Typography>
+            <Typography style={{ color: 'white', fontSize: '15px' }}>October 22 2024</Typography>
           </Box>:""
         }
           
 
           <Box sx={{ display: 'flex', alignItems: 'center', gap: '5px', padding: '0 40px' }}>
             <Divider type="vertical" style={{ height: '50px', background: 'white' }} />
-            <Typography style={{ color: 'white', fontSize: '20px', textAlign: 'center', textTransform: 'uppercase', fontWeight: 'bold' }}>
+            <Typography style={{ color: 'white', fontSize: '15px', textAlign: 'center', textTransform: 'uppercase', fontWeight: 'bold' }}>
               Review
             </Typography>
           </Box>
