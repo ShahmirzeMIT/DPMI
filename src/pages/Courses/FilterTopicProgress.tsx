@@ -3,6 +3,7 @@ import { Typography } from "antd";
 import ButtonFilter from "../../reusable/ButtonFilter";
 import DividerComp from "../../reusable/DividerComp";
 import { useState } from "react";
+import CourseCard from "../../reusable/CourseCard";
 
 export default function FilterTopicProgress() {
   const [activeTopics, setActiveTopics] = useState<string[]>([]);
@@ -85,6 +86,13 @@ export default function FilterTopicProgress() {
         </Box>
       </Box>
       <DividerComp />
+      <Box sx={{display:'flex',gap:'20px',flexWrap:'wrap',justifyContent:'space-around'}}>
+         <CourseCard data={{status:"ongoing"}}/>
+        <CourseCard data={{status:"completed"}}/>
+        <CourseCard data={{status:"locked"}}/>
+        <CourseCard data={{status:"new"}}/>
+      </Box>
+     
     </Box>
   );
 }
