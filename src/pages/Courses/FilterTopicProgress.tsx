@@ -2,34 +2,43 @@ import { Box } from "@mui/material";
 import { Typography } from "antd";
 import ButtonFilter from "../../reusable/ButtonFilter";
 import DividerComp from "../../reusable/DividerComp";
+import { useState } from "react";
 
 export default function FilterTopicProgress() {
+  const [activeTopics, setActiveTopics] = useState<string[]>([]);
+  const [activeProgresses, setActiveProgresses] = useState<string[]>([]);
+  const [activeStatuses, setActiveStatuses] = useState<string[]>([]);
+
+  const handleFilterChange = (group: string[], setGroup: React.Dispatch<React.SetStateAction<string[]>>, selected: string) => {
+    if (selected.startsWith("Any")) {
+      // Reset the group to only include "Any"
+      setGroup([selected]);
+    } else {
+      // Remove "Any" and toggle the selection of the clicked button
+      const newGroup = group.includes(selected)
+        ? group.filter((item) => item !== selected) // Deselect
+        : [...group.filter((item) => !item.startsWith("Any")), selected]; // Add selected
+      setGroup(newGroup);
+    }
+  };
+
   return (
-    <Box
-    //   sx={{
-    //     padding: 2,
-    //     border: "1px solid #d4d4d4",
-    //     borderRadius: "8px",
-    //     boxShadow: "0px 1px 5px rgba(0, 0, 0, 0.1)",
-    //     backgroundColor: "#fff",
-    //   }}
-    >
-      <Box sx={{ display: "flex", justifyContent: "space-between" }}>
+    <Box>
+      <Box sx={{ display: "flex", justifyContent: "space-between", marginTop: "20px" }}>
         {/* Filter By Topic Section */}
         <Box>
-          <Typography style={{ marginBottom: "10px", fontWeight: "bold" }}>
+          <Typography style={{ marginBottom: "10px", fontWeight: "bold", color: "#c0b8ae" }}>
             Filter By Topic
           </Typography>
-          {["All", "Math", "Science", "History", "English"].map((topic) => (
+          {["Any Topic", "Math", "Science", "History", "English"].map((topic) => (
             <ButtonFilter
               key={topic}
+              isActive={activeTopics.includes(topic)}
               data={{
                 name: topic,
                 label: topic,
                 key: topic.toLowerCase(),
-                onChange: (e: { name: string; key: string }) => {
-                  console.log(e);
-                },
+                onChange: () => handleFilterChange(activeTopics, setActiveTopics, topic),
               }}
             />
           ))}
@@ -38,19 +47,18 @@ export default function FilterTopicProgress() {
         {/* Filter By Progress Section */}
         <Box sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
           <Box>
-            <Typography style={{ marginBottom: "10px", fontWeight: "bold" }}>
+            <Typography style={{ marginBottom: "10px", fontWeight: "bold", color: "#c0b8ae" }}>
               Filter By Progress
             </Typography>
-            {["All", "Started", "In Progress", "Completed"].map((progress) => (
+            {["Any Progress", "Started", "In Progress", "Completed"].map((progress) => (
               <ButtonFilter
                 key={progress}
+                isActive={activeProgresses.includes(progress)}
                 data={{
                   name: progress,
                   label: progress,
                   key: progress.toLowerCase(),
-                  onChange: (e: { name: string; key: string }) => {
-                    console.log(e);
-                  },
+                  onChange: () => handleFilterChange(activeProgresses, setActiveProgresses, progress),
                 }}
               />
             ))}
@@ -58,27 +66,25 @@ export default function FilterTopicProgress() {
 
           {/* Filter By Status Section */}
           <Box>
-            <Typography style={{ marginBottom: "10px", fontWeight: "bold" }}>
+            <Typography style={{ marginBottom: "10px", fontWeight: "bold", color: "#c0b8ae" }}>
               Filter By Status
             </Typography>
-            {["All", "Active", "Inactive"].map((status) => (
+            {["Any Status", "Active", "Inactive"].map((status) => (
               <ButtonFilter
                 key={status}
+                isActive={activeStatuses.includes(status)}
                 data={{
                   name: status,
                   label: status,
                   key: status.toLowerCase(),
-                  onChange: (e: { name: string; key: string }) => {
-                    console.log(e);
-                  },
+                  onChange: () => handleFilterChange(activeStatuses, setActiveStatuses, status),
                 }}
               />
             ))}
           </Box>
         </Box>
-       
       </Box>
-      <DividerComp/>
+      <DividerComp />
     </Box>
   );
 }

@@ -36,9 +36,7 @@ export default function MainLogin() {
          <Box onClick={onSubmit}>
           <ButtonSub/>
          </Box>
-        
       </Box>
-
     </Box>
   );
 }

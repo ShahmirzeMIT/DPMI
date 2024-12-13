@@ -7,7 +7,7 @@ export default function Courses() {
     console.log(e, "email");
     setEmail((prev) => ({
       ...prev,
-      value: e.value, // Only update the value
+      value: e.value, 
     }));
   };
 

@@ -7,7 +7,6 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
 import { useNavigate } from 'react-router-dom';
-import { appBarLoginStyle } from '../../styles/PageStyles/appBarLoginStyle';
 // import AdbIcon from '@mui/icons-material/Adb';
 
 
@@ -23,12 +22,20 @@ function AppBarLogin() {
             noWrap
             component="a"
             href="#app-bar-with-responsive-menu"
-            sx={{...appBarLoginStyle.tyopgraphyFirst}}
+            sx={{
+              mr: 2,
+              display: { xs: 'none', md: 'flex' },
+              fontFamily: 'monospace',
+              fontWeight: 700,
+              letterSpacing: '.3rem',
+              color: 'black',
+              textDecoration: 'none',
+            }}
           >
             LOGO
           </Typography>
 
-          <Box sx={{...appBarLoginStyle.boxButton}}>
+          <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
             <IconButton
               size="large"
               aria-label="account of current user"
@@ -47,15 +54,31 @@ function AppBarLogin() {
             noWrap
             component="a"
             href="#app-bar-with-responsive-menu"
-            sx={{...appBarLoginStyle.tyopgraphyFirst}}
+            sx={{
+              mr: 2,
+              display: { xs: 'flex', md: 'none' },
+              flexGrow: 1,
+              fontFamily: 'monospace',
+              fontWeight: 700,
+              letterSpacing: '.3rem',
+              color: 'inherit',
+              // fontSize:{xs:'10px',md:'12px',sm:'14px'}, 
+              textDecoration: 'none',
+            }}
           >
             LOGO
           </Typography>
-          <Box sx={{...appBarLoginStyle.boxButton }}>
+          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
           </Box>
-          <Box sx={{...appBarLoginStyle.flex}}>
-            <Typography sx={{...appBarLoginStyle.text}}>Don't Have Account</Typography>
-            <Button style={{...appBarLoginStyle.button}} onClick={()=>navigate('/sign')}>Sign Up</Button>
+          <Box sx={{display:'flex',alignItems:'center',justifyContent:'space-between'}}>
+            <Typography sx={{color:'black',marginRight:'20px', fontSize:{xs:'10px',md:'14px',sm:'16px'}}}>Don't Have Account</Typography>
+            <Button style={{
+                backgroundImage: "linear-gradient(to top, #1e3c72 0%, #1e3c72 1%, #2a5298 100%)",
+                color: "white",
+                boxShadow: "0px 4px 6px rgba(0, 0, 0, 0.1)",
+               fontSize:12,
+               fontWeight:'normal'
+            }} onClick={()=>navigate('/sign')}>Sign Up</Button>
           </Box>
         </Toolbar>
       </Container>

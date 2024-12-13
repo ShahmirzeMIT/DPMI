@@ -1,0 +1,50 @@
+.split-container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    width: 100%;
+  }
+  
+  .top-section {
+    display: flex;
+    flex: 2;
+  }
+  
+  .top-left, .top-right {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    cursor: pointer; /* Kliklənə bilən işarə */
+  }
+  
+  .top-left {
+    background-color: #f0f0f0;
+  }
+  
+  .top-right {
+    background-color: #e0e0e0;
+  }
+  
+  .bottom-section {
+    flex: 2;
+    background-color: #d0d0d0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer; /* Kliklənə bilən işarə */
+  }
+  
+  .iframe-content {
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
+  
+  /* Aktiv Tab üçün Stil */
+  .active-tab {
+    outline: 3px solid #007BFF; /* Aktiv slayd mavi haşiyə ilə işarələnəcək */
+    background-color: #cce5ff; /* Daha tünd rənglə aktiv olduğunu göstərir */
+  }
+  
