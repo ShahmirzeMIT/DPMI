@@ -3,6 +3,9 @@
   publish = "dist"  # Build komutunun çıktılarını içeren dizin
   command = "npm run build"  # Sitenizi build etmek için kullanılacak komut
 
+[build.environment]
+  NODE_VERSION = "20.14.0"
+  
 [[redirects]]
   from = "/*"
   to = "/index.html"
