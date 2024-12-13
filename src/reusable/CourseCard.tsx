@@ -10,6 +10,7 @@ const status = [
   },
   {
     status: "completed",
+    
     color: '#ff4d63',
   },
   {
