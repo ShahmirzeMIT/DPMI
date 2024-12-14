@@ -26,6 +26,8 @@ const status = [
 export interface CourseCardProps {
   data: {
     status: string;
+    courseName?:string
+    content?:string
   };
 }
 

@@ -2,52 +2,41 @@ import { Box } from "@mui/material";
 import { Typography } from "antd";
 import ButtonFilter from "../../reusable/ButtonFilter";
 import DividerComp from "../../reusable/DividerComp";
-import { useState } from "react";
+
 import CourseCard from "../../reusable/CourseCard";
+import useFilterTopicProps from "./useFilterTopicProps";
+import { filterTopicStyle } from "../../styles/ComponentsStyles/filterTopicStyles";
 
 export default function FilterTopicProgress() {
-  const [activeTopics, setActiveTopics] = useState<string[]>([]);
-  const [activeProgresses, setActiveProgresses] = useState<string[]>([]);
-  const [activeStatuses, setActiveStatuses] = useState<string[]>([]);
-
-  const handleFilterChange = (group: string[], setGroup: React.Dispatch<React.SetStateAction<string[]>>, selected: string) => {
-    if (selected.startsWith("Any")) {
-      // Reset the group to only include "Any"
-      setGroup([selected]);
-    } else {
-      const newGroup = group.includes(selected)
-        ? group.filter((item) => item !== selected) // Deselect
-        : [...group.filter((item) => !item.startsWith("Any")), selected]; // Add selected
-      setGroup(newGroup);
-    }
-  };
+ const {activeTopics, setActiveTopics, activeProgresses, setActiveProgresses, activeStatuses, setActiveStatuses, handleFilterChange,certificates, courses}=useFilterTopicProps()
+console.log(courses,"certificates");
 
   return (
     <Box>
-      <Box sx={{ display: "flex", justifyContent: "space-between", marginTop: "20px" }}>
+      <Box sx={{...filterTopicStyle.container}}>
         {/* Filter By Topic Section */}
         <Box>
-          <Typography style={{ marginBottom: "10px", fontWeight: "bold", color: "#c0b8ae" }}>
-            Filter By Topic
+          <Typography style={{...filterTopicStyle.typography}}>
+              Filter By Certificate
           </Typography>
-          {["Any Topic", "Math", "Science", "History", "English"].map((topic) => (
+          {certificates.map((topic) => (
             <ButtonFilter
-              key={topic}
-              isActive={activeTopics.includes(topic)}
+              key={topic.CertificateShortName.toLowerCase()}
+              isActive={activeTopics.includes(topic.CertificateShortName)}
               data={{
-                name: topic,
-                label: topic,
-                key: topic.toLowerCase(),
-                onChange: () => handleFilterChange(activeTopics, setActiveTopics, topic),
+                name: topic.CertificateShortName,
+                label: topic.CertificateShortName,
+                key: topic.CertificateShortName.toLowerCase(),
+                onChange: () => handleFilterChange(activeTopics, setActiveTopics, topic.CertificateShortName),
               }}
             />
           ))}
         </Box>
 
         {/* Filter By Progress Section */}
-        <Box sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
+        <Box sx={{...filterTopicStyle.progressSectoin}}>
           <Box>
-            <Typography style={{ marginBottom: "10px", fontWeight: "bold", color: "#c0b8ae" }}>
+            <Typography style={{...filterTopicStyle.typography}}>
               Filter By Progress
             </Typography>
             {["Any Progress", "Started", "In Progress", "Completed"].map((progress) => (
@@ -66,7 +55,7 @@ export default function FilterTopicProgress() {
 
           {/* Filter By Status Section */}
           <Box>
-            <Typography style={{ marginBottom: "10px", fontWeight: "bold", color: "#c0b8ae" }}>
+            <Typography style={{...filterTopicStyle.typography}}>
               Filter By Status
             </Typography>
             {["Any Status", "Active", "Inactive"].map((status) => (
@@ -85,7 +74,7 @@ export default function FilterTopicProgress() {
         </Box>
       </Box>
       <DividerComp />
-      <Box sx={{display:'flex',gap:'20px',flexWrap:'wrap',justifyContent:'space-around'}}>
+      <Box sx={{...filterTopicStyle.continerCourses}}>
          <CourseCard data={{status:"ongoing"}}/>
         <CourseCard data={{status:"completed"}}/>
         <CourseCard data={{status:"locked"}}/>

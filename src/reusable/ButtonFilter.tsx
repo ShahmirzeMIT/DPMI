@@ -19,10 +19,14 @@ export default function ButtonFilter({ data, isActive }: ButtonFilterProps) {
     <Button
       onClick={onClick}
       style={{
-        minWidth: "120px",
+        border:'1.4px solid #c0b8ae',
+        // minWidth: "120px",
         margin: "3px",
         background: isActive ? "#ffbe00" : "",
         color: isActive ? "white" : "#c0b8ae",
+        fontSize:'15px',
+        textTransform:'uppercase',
+        padding: "6px 8px 4px"
       }}
     >
       {data.name}

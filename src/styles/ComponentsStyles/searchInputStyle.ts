@@ -1,8 +1,13 @@
 export const searchInputStyle={
     typography:{
         width: "89%",
-        display: "flex",
+        display: "flex" ,
         alignItems: "center",
+        clear: 'both' as 'both',
+        color:" #c0b8ae",
+        fontSize: "20px",
+        fontWeight:" 600" ,
+        position: "relative" as const,
     },
     search:{
         height: "50px",

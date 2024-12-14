@@ -1,5 +1,5 @@
 import axios from "axios";
 
 export default axios.create({
-  baseURL: "https://dpminstitute.org/api",
+  baseURL: "https://dpminstitute.org/api/",
 });
