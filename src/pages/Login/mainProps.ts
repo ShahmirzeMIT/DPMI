@@ -123,7 +123,7 @@ export default function MainProps() {
   });
 
   const onSubmit = () => {
-    // setAuthToken(passWord.value);
+    setAuthToken(passWord.value);
     navigate('/home');
     console.log('Email:', email);
     console.log('Password:', passWord);
