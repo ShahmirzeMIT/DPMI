@@ -7,19 +7,35 @@ const status = [
   {
     status: "ongoing",
     color: '#9557ec',
+    text:"Resume",
+    lessonType:"Lesson Completed"
+
   },
   {
     status: "completed",
-    
     color: '#ff4d63',
+    text:"Review",
+    lessonType:"Lesson Completed"
+
   },
   {
     status: "new",
     color: '#0dd037',
+    text:"Start",
+    lessonType:"Lessons"
+
   },
   {
     status: "locked",
     color: '#dfd9d2',
+     text:"Locked",
+     lessonType:"Lessons"
+  },
+  {
+    status: "A",
+    color: '#dfd9d2',
+    text:"Locked",
+    lessonType:"Lessons"
   },
 ];
 
@@ -28,6 +44,8 @@ export interface CourseCardProps {
     status: string;
     courseName?:string
     content?:string
+    iconUrl?:string
+    fkCertificateId?:string
   };
 }
 
@@ -49,7 +67,7 @@ export default function CourseCard({ data }: CourseCardProps) {
             <Box sx={{borderRadius:'50%', background:'#c0b8ae',width:'50px',height:'50px',textAlign:'center',verticalAlign:'middle',display:'flex',alignItems:'center',justifyContent:'center'}}>
                 {
                     data.status=='locked'?
-                    <MdLock/>:   <Avatar src="https://api.dicebear.com/7.x/miniavs/svg?seed=1" />
+                    <MdLock/>:   <Avatar src={data.iconUrl} />
                 }
             </Box>
             <Box sx={{ width: '90%', wordBreak: "break-word" }}>
@@ -64,7 +82,7 @@ export default function CourseCard({ data }: CourseCardProps) {
                   color:'#c0b8ae'// Allow the text to wrap
                 }}
               >
-                ENTREPRENEURSHIP I: CUSTOMER DISCOVERY
+                {data.courseName}
               </h3>
             </Box>
           </Box>
@@ -81,26 +99,26 @@ export default function CourseCard({ data }: CourseCardProps) {
           minHeight: 220,
         }}
       >
-        <Typography style={{color:'#c0b8ae',height:"56px",fontSize:'15px',lineHeight:'17px'}}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias non cumque omnis, hic ullam earum! Vero reiciendis voluptate excepturi impedit?</Typography>
+        <Typography style={{color:'#c0b8ae',height:"56px",fontSize:'15px',lineHeight:'17px'}}>{data.content}</Typography>
         {/* <Button style={{ height: '20px', fontSize: '10px', textTransform: 'uppercase',color:'#c0b8ae' }}>Entrepreneurship</Button> */}
       </Card>
 
       {/* Status Box */}
       <Box
-  sx={{
-    background: statusColor, // Dynamic background color
-    width: '99.5%',
-    height: '70px',
-    position: 'absolute',
-    bottom: '-10px',
-    borderBottomRightRadius: '5px',
-    borderBottomLeftRadius: '5px',
-    padding: '5px 15px',
-    display: 'flex',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-  }}
->
+          sx={{
+            background: statusColor, // Dynamic background color
+            width: '99.5%',
+            height: '70px',
+            position: 'absolute',
+            bottom: '-10px',
+            borderBottomRightRadius: '5px',
+            borderBottomLeftRadius: '5px',
+            padding: '5px 15px',
+            display: 'flex',
+            justifyContent: 'space-between',
+            alignItems: 'center',
+          }}
+        >
   <Box sx={{ lineHeight: 1 }}> {/* Ensures no extra space */}
   <Box>
   <Typography
@@ -113,14 +131,14 @@ export default function CourseCard({ data }: CourseCardProps) {
       lineHeight: '1', // Set line height to 1 for no extra spacing
     }}
   >
-      Completed
+      { status.find((item) => item.status === data.status)?.lessonType}
   </Typography>
   <Typography
     style={{
-      fontSize:data.status=="new" || data.status=="locked"?'44px': '12px',
+      fontSize:data.status=="new" || data.status=="locked" || data.status=="A"?'44px': '12px',
       color: 'white',
       fontWeight: '600',
-      margin: 0, // Remove any margin
+      margin: 0, // Remove an y margin
       padding: 0, // Remove any padding
       lineHeight: '1', // Ensures no extra space
     }}
@@ -188,7 +206,7 @@ export default function CourseCard({ data }: CourseCardProps) {
                 fontWeight: 'bold',
                 }}
             >
-                RESUME
+               { status.find((item) => item.status === data.status)?.text}
             </Typography>
             </Box>
 

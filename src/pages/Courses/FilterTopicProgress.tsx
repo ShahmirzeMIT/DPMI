@@ -75,10 +75,17 @@ console.log(courses,"certificates");
       </Box>
       <DividerComp />
       <Box sx={{...filterTopicStyle.continerCourses}}>
-         <CourseCard data={{status:"ongoing"}}/>
-        <CourseCard data={{status:"completed"}}/>
-        <CourseCard data={{status:"locked"}}/>
-        <CourseCard data={{status:"new"}}/>
+        {
+          courses.map((course)=>{
+            return <CourseCard data={{
+              status: course.Status,
+              courseName: course.CourseName,
+              content: course.CourseShortDesc,
+              iconUrl: course.IconUrl,
+              fkCertificateId: course.FkCertificateId
+            }}/>
+          })
+        }
       </Box>
      
     </Box>
