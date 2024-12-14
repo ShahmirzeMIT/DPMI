@@ -20,6 +20,7 @@ export default function Courses() {
     onChange: emailChange,
     status: false,
   });
+  
 
   return (
     <div>

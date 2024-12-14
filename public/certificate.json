@@ -1,0 +1,62 @@
+[
+    {
+        "Id": 1,
+        "CertificateId": "1001",
+        "CertificateShortName": "ACFP™",
+        "CertificateLongName": "Agile Communication Foundation Practitioner",
+        "CertificateShortDesc": " ",
+        "CertificateLongDesc": " ",
+        "OrderNo": 1,
+        "Status": "A"
+    },
+    {
+        "Id": 2,
+        "CertificateId": "1002",
+        "CertificateShortName": "ACPP™",
+        "CertificateLongName": "Agile Communication Professional Practitioner",
+        "CertificateShortDesc": " ",
+        "CertificateLongDesc": " ",
+        "OrderNo": 2,
+        "Status": "A"
+    },
+    {
+        "Id": 3,
+        "CertificateId": "1003",
+        "CertificateShortName": "SFP™",
+        "CertificateLongName": "Startup Foundation Practitioner",
+        "CertificateShortDesc": " ",
+        "CertificateLongDesc": " ",
+        "OrderNo": 3,
+        "Status": "A"
+    },
+    {
+        "Id": 4,
+        "CertificateId": "1004",
+        "CertificateShortName": "AI-FP™",
+        "CertificateLongName": "AI Foundation Practitioner",
+        "CertificateShortDesc": " ",
+        "CertificateLongDesc": " ",
+        "OrderNo": 4,
+        "Status": "A"
+    },
+    {
+        "Id": 5,
+        "CertificateId": "1005",
+        "CertificateShortName": "AI-PP™",
+        "CertificateLongName": "AI Professional Practitioner",
+        "CertificateShortDesc": " ",
+        "CertificateLongDesc": " ",
+        "OrderNo": 5,
+        "Status": "A"
+    },
+    {
+        "Id": 6,
+        "CertificateId": "1006",
+        "CertificateShortName": "DPM™",
+        "CertificateLongName": "Digital Product Manager",
+        "CertificateShortDesc": " ",
+        "CertificateLongDesc": " ",
+        "OrderNo": 6,
+        "Status": "A"
+    }
+]

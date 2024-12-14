@@ -6,7 +6,7 @@ export const callApi = async (url: string, params: any) => {
   try {
     const token = localStorage.getItem("token");
     const lang = localStorage.getItem("language");
-    const response = await API.post(`/erp${url}`, params, {
+    const response = await API.post(`${url}`, params, {
       headers: {
         "Content-Type": "application/json",
         Authorization: `Bearer ${token}`,
