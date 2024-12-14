@@ -14,7 +14,7 @@ interface FieldProps {
   status: boolean;
 }
 
-export default function MainProps() { 
+export default function useAutenticatieProps() { 
   const { setAuthToken } = useAuth();
   const navigate = useNavigate();
   const [isVerified, setIsVerified] = useState(false);
