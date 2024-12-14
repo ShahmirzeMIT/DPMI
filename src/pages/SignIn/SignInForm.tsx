@@ -6,7 +6,7 @@ import InputPassWord from '../../reusable/InputPassWord'
 import { Link } from 'react-router-dom'
 import ReCAPTCHA from 'react-google-recaptcha'
 import ButtonSub from '../../reusable/ButtonSub'
-import mainProps from '../Login/mainProps'
+import mainProps from '../Login/MainProps'
 import { FaGoogle } from "react-icons/fa";
 import { FaApple } from "react-icons/fa";
 export default function SignInForm() {

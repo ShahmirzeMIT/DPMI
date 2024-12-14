@@ -4,13 +4,13 @@ import InputPassWord from '../../reusable/InputPassWord';
 import ButtonSub from '../../reusable/ButtonSub';
 import { Link } from 'react-router-dom';
 import ReCAPTCHA from "react-google-recaptcha";
-import mainProps from './mainProps';
 import { stylesLoginPage } from '../../styles/PageStyles/loginPageStyles';
 import { Button } from 'antd';
 import { FaGoogle } from "react-icons/fa";
 import { FaApple } from "react-icons/fa";
+import MainProps from './MainProps';
 export default function MainLogin() {
-  const { email,  handleVerify, passWord,onSubmit}=mainProps()
+  const { email,  handleVerify, passWord,onSubmit}=MainProps()
   return (
     <Box  sx={{...stylesLoginPage.mainBox}}>
       <h1  style={{fontSize:'50px'}}>Login to Logo</h1>
