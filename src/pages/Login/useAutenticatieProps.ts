@@ -1,7 +1,7 @@
 import { useState } from 'react';
 // Fixed import
 import { useNavigate } from 'react-router-dom';
-import { useAuth } from '../../auth/AutchContext'; 
+import { useAuth } from '../../auth/useAutchContext'; 
 
 interface FieldProps {
   name: string;
