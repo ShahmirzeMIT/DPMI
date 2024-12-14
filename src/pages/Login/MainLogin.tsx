@@ -8,9 +8,9 @@ import { stylesLoginPage } from '../../styles/PageStyles/loginPageStyles';
 import { Button } from 'antd';
 import { FaGoogle } from "react-icons/fa";
 import { FaApple } from "react-icons/fa";
-import MainProps from './MainProps';
+import useAutenticatieProps from './useAutenticatieProps';
 export default function MainLogin() {
-  const { email,  handleVerify, passWord,onSubmit}=MainProps()
+  const { email,  handleVerify, passWord,onSubmit}=useAutenticatieProps()
   return (
     <Box  sx={{...stylesLoginPage.mainBox}}>
       <h1  style={{fontSize:'50px'}}>Login to Logo</h1>
